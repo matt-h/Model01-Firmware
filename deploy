@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+echo "Wait for it to say press ENTER and then hold PROG until it starts flashing"
+
+ARDUINO_VERSION="1.8.5"
+
+if [ ! -d "arduino-$ARDUINO_VERSION" ]; then
+	if [ ! -f "arduino-$ARDUINO_VERSION.tar.xz" ]; then
+		echo "Downloading arduino $ARDUINO_VERSION"
+		curl https://downloads.arduino.cc/arduino-$ARDUINO_VERSION-linux64.tar.xz -o arduino-$ARDUINO_VERSION.tar.xz
+	fi
+	echo "Extracting arduino"
+	tar -xvf arduino-$ARDUINO_VERSION.tar.xz
+fi
+
+export ARDUINO_PATH=./arduino-$ARDUINO_VERSION
+export SKETCHBOOK_DIR=$HOME/git/arduino
+make flash
