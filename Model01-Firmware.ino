@@ -396,6 +396,12 @@ void setup() {
   // needs to be explicitly told which keymap layer is your numpad layer
   NumPad.numPadLayer = NUMPAD;
 
+  MouseWrapper.speedLimit = 64;
+  MouseKeys.speed = 2;
+  MouseKeys.speedDelay = 2;
+  MouseKeys.accelSpeed = 2;
+  MouseKeys.accelDelay = 25;
+
   // We set the brightness of the rainbow effects to 150 (on a scale of 0-255)
   // This draws more than 500mA, but looks much nicer than a dimmer effect
   LEDRainbowEffect.brightness(150);
