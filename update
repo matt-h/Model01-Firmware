@@ -3,9 +3,9 @@
 set -e
 
 if [ -d "$HOME/git/arduino/hardware/keyboardio" ]; then
-	cd $HOME/git/arduino/hardware/keyboardio/avr
+	cd $HOME/git/arduino/hardware/keyboardio
 	make update-submodules
 else
 	mkdir -p "$HOME/git/arduino/hardware/keyboardio"
-	git clone --recursive git@github.com:keyboardio/Arduino-Boards.git "$HOME/git/arduino/hardware/keyboardio/avr"
+	git clone --recursive git@github.com:keyboardio/Kaleidoscope-Bundle-Keyboardio.git "$HOME/git/arduino/hardware/keyboardio"
 fi

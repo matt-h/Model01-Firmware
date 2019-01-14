@@ -4,7 +4,7 @@ set -e
 
 echo "Wait for it to say press ENTER and then hold PROG until it starts flashing"
 
-ARDUINO_VERSION="1.8.5"
+ARDUINO_VERSION="1.8.12"
 
 if [ ! -d "arduino-$ARDUINO_VERSION" ]; then
 	if [ ! -f "arduino-$ARDUINO_VERSION.tar.xz" ]; then
