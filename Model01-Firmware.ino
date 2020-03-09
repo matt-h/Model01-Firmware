@@ -42,9 +42,6 @@
 // Support for LED modes that pulse the keyboard's LED in a rainbow pattern
 #include "Kaleidoscope-LEDEffect-Rainbow.h"
 
-// Support for Keyboardio's internal keyboard testing mode
-#include "Kaleidoscope-HardwareTestMode.h"
-
 // Support for host power management (suspend & wakeup)
 #include "Kaleidoscope-HostPowerManagement.h"
 
@@ -273,9 +270,7 @@ void hostPowerManagementEventHandler(kaleidoscope::plugin::HostPowerManagement::
 enum {
   // Toggle between Boot (6-key rollover; for BIOSes and early boot) and NKRO
   // mode.
-  COMBO_TOGGLE_NKRO_MODE,
-  // Enter test mode
-  COMBO_ENTER_TEST_MODE
+  COMBO_TOGGLE_NKRO_MODE
 };
 
 /** Wrappers, to be used by MagicCombo. **/
@@ -288,24 +283,12 @@ static void toggleKeyboardProtocol(uint8_t combo_index) {
   USBQuirks.toggleKeyboardProtocol();
 }
 
-/**
- *  This enters the hardware test mode
- */
-static void enterHardwareTestMode(uint8_t combo_index) {
-  HardwareTestMode.runTests();
-}
-
-
 /** Magic combo list, a list of key combo and action pairs the firmware should
  * recognise.
  */
 USE_MAGIC_COMBOS({.action = toggleKeyboardProtocol,
                   // Left Fn + Esc + Shift
                   .keys = { R3C6, R2C6, R3C7 }
-}, {
-  .action = enterHardwareTestMode,
-  // Left Fn + Prog + LED
-  .keys = { R3C6, R0C0, R0C6 }
 });
 
 // First, tell Kaleidoscope which plugins you want to use.
@@ -333,10 +316,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // The boot greeting effect pulses the LED button for 10 seconds after the
   // keyboard is first connected
   BootGreetingEffect,
-
-  // The hardware test mode, which can be invoked by tapping Prog, LED and the
-  // left Fn button at the same time.
-  HardwareTestMode,
 
   // LEDControl provides support for other LED modes
   LEDControl,
@@ -400,9 +379,6 @@ void setup() {
   // This draws more than 500mA, but looks much nicer than a dimmer effect
   LEDRainbowEffect.brightness(150);
   LEDRainbowWaveEffect.brightness(150);
-
-  // Set the action key the test mode should listen for to Left Fn
-  HardwareTestMode.setActionKey(R3C6);
 
   // We want to make sure that the firmware starts with LED effects off
   // This avoids over-taxing devices that don't have a lot of power to share
