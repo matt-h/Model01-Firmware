@@ -125,14 +125,14 @@ KEYMAPS(
    Key_Backtick, Key_Q, Key_W, Key_F, Key_P, Key_G, Key_Tab,
    Key_PageUp,   Key_A, Key_R, Key_S, Key_T, Key_D,
    Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
-   Key_LeftShift, Key_Backspace, Key_LeftGui, Key_LeftControl,
-   ShiftToLayer(FUNCTION),
+   Key_LeftShift, Key_Spacebar, Key_LeftAlt, Key_LeftControl,
+   Key_LeftGui,
 
-   M(MACRO_ANY),  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
-   Key_Enter,     Key_J, Key_L, Key_U,     Key_Y,         Key_Semicolon, Key_Equals,
-                  Key_H, Key_N, Key_E,     Key_I,         Key_O,         Key_Quote,
-   Key_RightAlt,  Key_K, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
-   Key_RightControl, Key_LeftAlt, Key_Spacebar, Key_RightShift,
+   Key_RightBracket, Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
+   Key_Enter,        Key_J, Key_L, Key_U,     Key_Y,         Key_Semicolon, Key_Equals,
+                     Key_H, Key_N, Key_E,     Key_I,         Key_O,         Key_Quote,
+   Key_LeftBracket,  Key_K, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
+   Key_RightControl, Key_Backspace, Key_Spacebar, Key_RightShift,
    ShiftToLayer(FUNCTION)),
 
   [NUMPAD] =  KEYMAP_STACKED
@@ -155,14 +155,14 @@ KEYMAPS(
    Key_Tab,  ___,              ___,         Key_mouseUp, Key_mouseBtnR, ___, ___,
    Key_Home, Key_mouseBtnL,    Key_mouseL,  Key_mouseDn, Key_mouseR, ___,
    Key_End,  Key_PrintScreen,  Key_Insert,  ___,         Key_mouseBtnM, ___,  ___,
-   ___, Key_Delete, Key_LeftCurlyBracket, Key_RightCurlyBracket,
+   ___, ___, ___, ___,
    ___,
 
    Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,        Key_F8,                   Key_F9,                   Key_F10,          Key_F11,
    Consumer_PlaySlashPause,    Consumer_ScanNextTrack, Key_UpArrow,   ___,                      ___,                      ___,              Key_F12,
                                Key_LeftArrow,          Key_DownArrow, Key_RightArrow,           ___,                      ___,              ___,
-   Key_PcApplication,          ___,                    Consumer_Mute, Consumer_VolumeDecrement, Consumer_VolumeIncrement, Key_Backslash,    Key_Pipe,
-   Key_LeftBracket, Key_RightBracket, Key_Enter, ___,
+   Key_RightCurlyBracket,      ___,                    Consumer_Mute, Consumer_VolumeDecrement, Consumer_VolumeIncrement, Key_Backslash,    Key_Pipe,
+   ___, Key_Delete, Key_Enter, ___,
    ___)
 ) // KEYMAPS(
 
