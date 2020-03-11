@@ -57,8 +57,7 @@
   * a macro key is pressed.
   */
 
-enum { MACRO_VERSION_INFO,
-       MACRO_ANY
+enum { MACRO_VERSION_INFO
      };
 
 
@@ -181,27 +180,6 @@ static void versionInfoMacro(uint8_t keyState) {
   }
 }
 
-/** anyKeyMacro is used to provide the functionality of the 'Any' key.
- *
- * When the 'any key' macro is toggled on, a random alphanumeric key is
- * selected. While the key is held, the function generates a synthetic
- * keypress event repeating that randomly selected key.
- *
- */
-
-static void anyKeyMacro(uint8_t keyState) {
-  static Key lastKey;
-  bool toggledOn = false;
-  if (keyToggledOn(keyState)) {
-    lastKey.setKeyCode(Key_A.getKeyCode() + (uint8_t)(millis() % 36));
-    toggledOn = true;
-  }
-
-  if (keyIsPressed(keyState))
-    Kaleidoscope.hid().keyboard().pressKey(lastKey, toggledOn);
-}
-
-
 /** macroAction dispatches keymap events that are tied to a macro
     to that macro. It takes two uint8_t parameters.
 
@@ -221,9 +199,6 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     versionInfoMacro(keyState);
     break;
 
-  case MACRO_ANY:
-    anyKeyMacro(keyState);
-    break;
   }
   return MACRO_NONE;
 }
