@@ -110,7 +110,7 @@ enum { MACRO_VERSION_INFO
   *
   */
 
-enum { COLEMAK, NUMPAD, FUNCTION }; // layers
+enum { COLEMAK, SUPER, NUMPAD, FUNCTION }; // layers
 
 /* This comment temporarily turns off astyle's indent enforcement
  *   so we can make the keymaps actually resemble the physical key layout better
@@ -125,12 +125,27 @@ KEYMAPS(
    Key_PageUp,   Key_A, Key_R, Key_S, Key_T, Key_D,
    Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
    Key_LeftShift, Key_Spacebar, Key_LeftAlt, Key_LeftControl,
-   Key_LeftGui,
+   ShiftToLayer(SUPER),
 
    Key_RightBracket, Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
    Key_Enter,        Key_J, Key_L, Key_U,     Key_Y,         Key_Semicolon, Key_Equals,
                      Key_H, Key_N, Key_E,     Key_I,         Key_O,         Key_Quote,
    Key_LeftBracket,  Key_K, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
+   Key_RightControl, Key_Backspace, Key_Spacebar, Key_RightShift,
+   ShiftToLayer(FUNCTION)),
+
+  [SUPER] = KEYMAP_STACKED
+  (___,      LGUI(Key_1), LGUI(Key_2), LGUI(Key_3), LGUI(Key_4), LGUI(Key_5), Key_E,
+   Key_Tab,  LGUI(Key_Q), LGUI(Key_W), LGUI(Key_F), LGUI(Key_P), LGUI(Key_G), Key_Enter,
+   Key_Home, LGUI(Key_A), LGUI(Key_R), LGUI(Key_S), LGUI(Key_T), LGUI(Key_D),
+   Key_End,  LGUI(Key_Z), LGUI(Key_X), LGUI(Key_C), LGUI(Key_V), LGUI(Key_B), Key_Escape,
+   Key_LeftShift, Key_Backspace, Key_Delete, Key_LeftControl,
+   ___,
+
+   Key_RightBracket, LGUI(Key_6), LGUI(Key_7), LGUI(Key_8), LGUI(Key_9), LGUI(Key_0),   LockLayer(NUMPAD),
+   Key_Enter,        LGUI(Key_J), LGUI(Key_L), LGUI(Key_U), LGUI(Key_Y), Key_Semicolon, Key_Equals,
+                     LGUI(Key_H), LGUI(Key_N), LGUI(Key_E), LGUI(Key_I), LGUI(Key_O),   Key_Quote,
+   Key_LeftBracket,  LGUI(Key_K), LGUI(Key_M), Key_Comma,   Key_Period,  Key_Slash,     Key_Minus,
    Key_RightControl, Key_Backspace, Key_Spacebar, Key_RightShift,
    ShiftToLayer(FUNCTION)),
 
@@ -255,7 +270,7 @@ static void toggleKeyboardProtocol(uint8_t combo_index) {
  * recognise.
  */
 USE_MAGIC_COMBOS({.action = toggleKeyboardProtocol,
-                  // Left Fn + Esc + Shift
+                  // Left Fn + Esc + LControl
                   .keys = { R3C6, R2C6, R3C7 }
 });
 

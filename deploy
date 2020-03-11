@@ -17,4 +17,5 @@ fi
 
 export ARDUINO_PATH=./arduino-$ARDUINO_VERSION
 export SKETCHBOOK_DIR=$HOME/git/arduino
+make all
 make flash
