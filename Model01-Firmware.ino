@@ -44,6 +44,9 @@
 // Support for USB quirks, like changing the key state report protocol
 #include "Kaleidoscope-USB-Quirks.h"
 
+// Kaleidoscope-TopsyTurvy -- Turn the effect of Shift upside down for certain keys
+#include "Kaleidoscope-TopsyTurvy.h"
+
 /** This 'enum' is a list of all the macros used by the Model 01's firmware
   * The names aren't particularly important. What is important is that each
   * is unique.
@@ -120,14 +123,14 @@ enum { COLEMAK, SUPER, NUMPAD, FUNCTION }; // layers
 KEYMAPS(
 
   [COLEMAK] = KEYMAP_STACKED
-  (___,          Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
+  (___,          TOPSY(1), TOPSY(2), TOPSY(3), TOPSY(4), TOPSY(5), Key_LEDEffectNext,
    Key_Backtick, Key_Q, Key_W, Key_F, Key_P, Key_G, Key_Tab,
    Key_PageUp,   Key_A, Key_R, Key_S, Key_T, Key_D,
    Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
    Key_LeftShift, Key_Spacebar, Key_LeftAlt, Key_LeftControl,
    ShiftToLayer(SUPER),
 
-   Key_RightBracket, Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
+   Key_RightBracket, TOPSY(6), TOPSY(7), TOPSY(8), TOPSY(9), TOPSY(0),      LockLayer(NUMPAD),
    Key_Enter,        Key_J, Key_L, Key_U,     Key_Y,         Key_Semicolon, Key_Equals,
                      Key_H, Key_N, Key_E,     Key_I,         Key_O,         Key_Quote,
    Key_LeftBracket,  Key_K, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
@@ -299,6 +302,9 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // The numpad plugin is responsible for lighting up the 'numpad' mode
   // with a custom LED effect
   NumPad,
+
+  // Kaleidoscope-TopsyTurvy -- Turn the effect of Shift upside down for certain keys
+  TopsyTurvy,
 
   // The macros plugin adds support for macros
   Macros,
