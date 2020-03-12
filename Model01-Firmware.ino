@@ -138,7 +138,7 @@ KEYMAPS(
    ShiftToLayer(FUNCTION)),
 
   [SUPER] = KEYMAP_STACKED
-  (___,      LGUI(Key_1), LGUI(Key_2), LGUI(Key_3), LGUI(Key_4), LGUI(Key_5), Key_E,
+  (LGUI(Key_F12), LGUI(Key_1), LGUI(Key_2), LGUI(Key_3), LGUI(Key_4), LGUI(Key_5), Key_E,
    Key_Tab,  LGUI(Key_Q), LGUI(Key_W), LGUI(Key_F), LGUI(Key_P), LGUI(Key_G), Key_Enter,
    Key_Home, LGUI(Key_A), LGUI(Key_R), LGUI(Key_S), LGUI(Key_T), LGUI(Key_D),
    Key_End,  LGUI(Key_Z), LGUI(Key_X), LGUI(Key_C), LGUI(Key_V), LGUI(Key_B), Key_Escape,
@@ -146,7 +146,7 @@ KEYMAPS(
    ___,
 
    Key_RightBracket, LGUI(Key_6), LGUI(Key_7), LGUI(Key_8), LGUI(Key_9), LGUI(Key_0),   LockLayer(NUMPAD),
-   Key_Enter,        LGUI(Key_J), LGUI(Key_L), LGUI(Key_U), LGUI(Key_Y), Key_Semicolon, Key_Equals,
+   LGUI(Key_Enter),        LGUI(Key_J), LGUI(Key_L), LGUI(Key_U), LGUI(Key_Y), Key_Semicolon, Key_Equals,
                      LGUI(Key_H), LGUI(Key_N), LGUI(Key_E), LGUI(Key_I), LGUI(Key_O),   Key_Quote,
    Key_LeftBracket,  LGUI(Key_K), LGUI(Key_M), Key_Comma,   Key_Period,  Key_Slash,     Key_Minus,
    Key_RightControl, Key_Backspace, Key_Spacebar, Key_RightShift,
