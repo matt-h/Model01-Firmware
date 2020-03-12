@@ -47,6 +47,9 @@
 // Kaleidoscope-TopsyTurvy -- Turn the effect of Shift upside down for certain keys
 #include "Kaleidoscope-TopsyTurvy.h"
 
+// overload keys on your keyboard so that they produce one keycode (i.e. symbol) when tapped, and a different keycode -- most likely a modifier (e.g. shift or alt) -- when held
+#include "Kaleidoscope-Qukeys.h"
+
 /** This 'enum' is a list of all the macros used by the Model 01's firmware
   * The names aren't particularly important. What is important is that each
   * is unique.
@@ -127,14 +130,14 @@ KEYMAPS(
    Key_Backtick, Key_Q, Key_W, Key_F, Key_P, Key_G, Key_Tab,
    Key_PageUp,   Key_A, Key_R, Key_S, Key_T, Key_D,
    Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
-   Key_LeftShift, Key_Spacebar, Key_LeftAlt, Key_LeftControl,
+   Key_LeftShift, SFT_T(Space), Key_LeftAlt, Key_LeftControl,
    ShiftToLayer(SUPER),
 
    Key_RightBracket, TOPSY(6), TOPSY(7), TOPSY(8), TOPSY(9), TOPSY(0),      LockLayer(NUMPAD),
    Key_Enter,        Key_J, Key_L, Key_U,     Key_Y,         Key_Semicolon, Key_Equals,
                      Key_H, Key_N, Key_E,     Key_I,         Key_O,         Key_Quote,
    Key_LeftBracket,  Key_K, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
-   Key_RightControl, Key_Backspace, Key_Spacebar, Key_RightShift,
+   Key_RightControl, Key_Backspace, SFT_T(Space), Key_RightShift,
    ShiftToLayer(FUNCTION)),
 
   [SUPER] = KEYMAP_STACKED
@@ -149,7 +152,7 @@ KEYMAPS(
    LGUI(Key_Enter),        LGUI(Key_J), LGUI(Key_L), LGUI(Key_U), LGUI(Key_Y), Key_Semicolon, Key_Equals,
                      LGUI(Key_H), LGUI(Key_N), LGUI(Key_E), LGUI(Key_I), LGUI(Key_O),   Key_Quote,
    Key_LeftBracket,  LGUI(Key_K), LGUI(Key_M), Key_Comma,   Key_Period,  Key_Slash,     Key_Minus,
-   Key_RightControl, Key_Backspace, Key_Spacebar, Key_RightShift,
+   Key_RightControl, Key_Backspace, SFT_T(Space), Key_RightShift,
    ShiftToLayer(FUNCTION)),
 
   [NUMPAD] =  KEYMAP_STACKED
@@ -284,6 +287,8 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // The boot greeting effect pulses the LED button for 10 seconds after the
   // keyboard is first connected
   BootGreetingEffect,
+
+  Qukeys,
 
   // LEDControl provides support for other LED modes
   LEDControl,
